@@ -11,4 +11,7 @@ Experimental - Web Api using python and FastAPI framework
 3. Install requirement
    >pip install -r requirement.txt
 
+4. Start uvicorn
+   >uvicorn main:<appname> --reload
+
    
