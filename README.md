@@ -12,6 +12,11 @@ Experimental - Web Api using python and FastAPI framework
    >pip install -r requirement.txt
 
 4. Start uvicorn
-   >uvicorn main:[appname] --reload
+   >uvicorn main:app --reload
+
+
+5. View Open Api documentation
+   >http://127.0.0.1:8000/docs 
+   >http://127.0.0.1:8000/redoc
 
    
