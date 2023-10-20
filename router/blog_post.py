@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status,Response,Query, Path,Body
 from typing import Optional,List
 from customenum import BlogType
-from model.blog_model import BlogModel
+from model.blog import BlogModel
 
 
 
@@ -44,4 +44,6 @@ def create_comment(blog:BlogModel,id:int,
     }
 
     
+def required_functionality():
+    return {'message': 'Dummy output'}
 
