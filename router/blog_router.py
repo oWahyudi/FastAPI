@@ -1,6 +1,6 @@
 from fastapi import APIRouter, status,Response, Depends,Query,Body,Path
 from typing import Optional,List
-from customenum import BlogType
+from shared.customenum import BlogType
 from model.blog import BlogModel
 
 
