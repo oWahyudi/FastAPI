@@ -1,7 +1,8 @@
 from sqlalchemy.orm.session import Session
-from model.user import UserBase
+from model.schema import UserBase
 from db.dbschema import DbUser
 from shared.hashlib import Hash
+from fastapi import HTTPException,status
 
 def create_user(db: Session, request: UserBase):
     newuser=DbUser(
@@ -18,10 +19,15 @@ def get_all_user(db:Session):
     return db.query(DbUser).all()
 
 def get_user(db:Session, id: int):
-    return db.query(DbUser).filter(DbUser.id==id).first()
+    user= db.query(DbUser).filter(DbUser.id==id).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f'User with id {id} not found')
+    return user
 
 def update_user(db:Session, id:int, request:UserBase):
     user=db.query(DbUser).filter(DbUser.id==id)
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f'User with id {id} not found')
     user.update({DbUser.username: request.username,
                  DbUser.email:request.email,
                  DbUser.password: Hash.bcrypt(request.password) })
@@ -30,6 +36,8 @@ def update_user(db:Session, id:int, request:UserBase):
 
 def delete_user(db:Session, id: int):
     user=db.query(DbUser).filter(DbUser.id==id).first()
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f'User with id {id} not found')
     db.delete(user)
     db.commit()
     return 'ok'
