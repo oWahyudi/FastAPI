@@ -1,6 +1,9 @@
 # FastAPI
 Experimental - Web Api using python and FastAPI framework
 
+Excercise: pydantic model (form data),custom response,header,cookies  
+           OAuth (securing endpoint)
+
 
 1. Create virtual environment
    >python3 -m venv **fastapi-env**
@@ -12,7 +15,8 @@ Experimental - Web Api using python and FastAPI framework
    >pip install -r **requirements.txt**
 
 4. Start uvicorn
-   >uvicorn main:app --reload
+   >uvicorn main:app --reload  
+   > or uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 5. View Open Api documentation
    >http://127.0.0.1:8000/docs  

@@ -17,7 +17,7 @@ def index():
     return {'message': 'Index page'}
 
 @app.exception_handler(StoryException)
-def storyexception_handler(reqquest:Request, ex: StoryException):
+def storyexception_handler(request:Request, ex: StoryException):
     return JSONResponse(status_code=418, content={'detail':ex.name})
 
 dbschema.Base.metadata.create_all(database.engine)
