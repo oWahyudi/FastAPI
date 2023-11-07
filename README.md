@@ -10,11 +10,8 @@ Experimental - Web Api using python and FastAPI framework
 > [!IMPORTANT]
 > This is not for **Production!!!!** 
 
+  <br><br><br>
   
-  
-  
-  
-
 1. Create virtual environment
    >python3 -m venv **fastapi-env**
 
