@@ -3,13 +3,13 @@ Experimental - Web Api using python and FastAPI framework
 
 
 1. Create virtual environment
-   >python3 -m venv fastapi-env
+   >python3 -m venv **fastapi-env**
 
 2. Activate virtual environment
-   >source fastapi-env/bin/activate
+   >source **fastapi-env**/bin/activate
 
 3. Install requirement
-   >pip install -r requirement.txt
+   >pip install -r **requirements.txt**
 
 4. Start uvicorn
    >uvicorn main:app --reload
