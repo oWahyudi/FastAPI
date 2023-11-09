@@ -1,6 +1,7 @@
 from fastapi import FastAPI,Request
 from fastapi.responses import JSONResponse,PlainTextResponse
 from router import blog_router,user_router,article_router,product_router
+from auth import authentication_router
 from db import dbschema ,database
 from shared.customexception import StoryException
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,10 +11,12 @@ app=FastAPI()
 
 
 # Include the routers for various parts of the application.
+app.include_router(authentication_router.router)
 app.include_router(blog_router.router)
 app.include_router(user_router.router)
 app.include_router(article_router.router)
 app.include_router(product_router.router)
+
 
 
 @app.get('/')
@@ -36,7 +39,7 @@ origins=[
 # Configure and add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origin = origins,
+    allow_origins = origins,
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = ["*"]
