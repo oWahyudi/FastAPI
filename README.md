@@ -2,7 +2,7 @@
 Experimental - Web Api using python and FastAPI framework
 
 > [!NOTE]
-> Excercise:  
+> Exercise:  
 >   pydantic model (form data),custom response,header,cookies, CORS, Error Handling  
 >   OAuth (securing endpoint), Authentication, Token generation code, Generating access token,  
 >   User Authentication
